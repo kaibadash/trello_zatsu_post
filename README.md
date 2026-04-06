@@ -7,14 +7,31 @@ A CLI tool that takes a casual message, uses AI to generate a proper title and d
 ```bash
 bundle install
 cp .env.example .env
+# Edit .env with your API keys
 ```
 
 ## Usage
 
 ```bash
-bundle exec ruby bin/trello_post "Fix the login page design"
+bundle exec ruby bin/trello_zatsu_post "Fix the login page design"
 ```
 
-## Lisence
+### Run from anywhere
+
+Add the `bin/` directory to your PATH:
+
+```bash
+cd trello_zatsu_post
+echo "export PATH=\"$PWD/bin:\$PATH\"" >> ~/.zshrc
+source ~/.zshrc
+```
+
+Then you can run it from any directory:
+
+```bash
+trello_zatsu_post "Fix the login page design"
+```
+
+## License
 
 MIT

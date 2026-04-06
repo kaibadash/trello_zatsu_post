@@ -14,3 +14,7 @@ cp .env.example .env
 ```bash
 bundle exec ruby bin/trello_post "Fix the login page design"
 ```
+
+## Lisence
+
+MIT

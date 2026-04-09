@@ -7,7 +7,8 @@ require 'erb'
 module TrelloZatsuPost
   class AiGenerator
     DEFAULT_MODEL = 'gpt-4o-mini'
-    PROMPT_DIR = File.expand_path('../../prompts', __dir__)
+    PROJECT_ROOT = File.expand_path('../..', __dir__)
+    PROMPT_DIR = File.join(PROJECT_ROOT, 'prompts')
     DEFAULT_PROMPT_FILE = File.join(PROMPT_DIR, 'system.erb')
 
     def initialize
@@ -57,6 +58,7 @@ module TrelloZatsuPost
 
     def render_system_prompt(**locals)
       path = ENV.fetch('LLM_SYSTEM_PROMPT', DEFAULT_PROMPT_FILE)
+      path = File.expand_path(path, PROJECT_ROOT) unless File.absolute_path?(path)
       template = File.read(path)
       ERB.new(template, trim_mode: '-').result_with_hash(locals)
     end

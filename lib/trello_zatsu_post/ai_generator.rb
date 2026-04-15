@@ -22,7 +22,7 @@ module TrelloZatsuPost
           model: @model,
           response_format: { type: 'json_object' },
           messages: [
-            { role: 'system', content: render_system_prompt(message: message) },
+            { role: 'system', content: render_system_prompt(message: message, language: ENV['LANGUAGE']) },
             { role: 'user', content: message }
           ]
         }

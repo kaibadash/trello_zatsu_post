@@ -1,0 +1,21 @@
+#!/usr/bin/env ruby
+# frozen_string_literal: true
+
+ENV['BUNDLE_GEMFILE'] ||= File.expand_path('../Gemfile', __dir__)
+require 'bundler/setup'
+
+root = File.expand_path('..', __dir__)
+ENV['DOTENV_FILE'] ||= File.join(root, '.env')
+require 'dotenv'
+Dotenv.load(ENV.fetch('DOTENV_FILE', nil))
+
+require_relative '../lib/trello_zatsu_post/cli'
+require_relative '../lib/trello_zatsu_post/ai_generator'
+require_relative '../lib/trello_zatsu_post/trello_client'
+
+begin
+  TrelloZatsuPost::Cli.new(ARGV).run
+rescue StandardError => e
+  warn "Error: #{e.message}"
+  exit 1
+end

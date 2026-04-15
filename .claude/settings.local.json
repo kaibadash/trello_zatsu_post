@@ -1,0 +1,20 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(bash:*)",
+      "Bash(gh issue:*)",
+      "Bash(chmod +x:*)",
+      "Bash(bundle exec:*)",
+      "Bash(rubocop -A bin/ lib/)",
+      "Bash(rubocop:*)",
+      "WebFetch(domain:openrouter.ai)",
+      "Bash(bundle install:*)",
+      "Bash(git add:*)",
+      "Bash(git commit:*)",
+      "Read(//private/tmp/**)",
+      "Bash(ruby -I/Users/kaibazawadai/program/trello_zatsu_post/lib -e \"require 'trello_zatsu_post'; puts TrelloZatsuPost::AiGenerator::DEFAULT_PROMPT_FILE; puts File.exist?\\(TrelloZatsuPost::AiGenerator::DEFAULT_PROMPT_FILE\\)\")",
+      "Bash(ruby -c lib/trello_zatsu_post/ai_generator.rb)",
+      "Bash(ruby -c prompts/system.erb)"
+    ]
+  }
+}
